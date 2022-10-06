@@ -1,13 +1,28 @@
+//create a function hasTargetSum(array, sum)
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  // loop through the numbers in array and add it to each other
+  for(let i = 0; i < array.length; i++){
+    for(let j = i + 1; j < array.length; j++){
+      let sum = (array[i] + array[j]);
+      if (sum === target){
+        return true
+      }
+    }
+  }
+  return false;
 }
 
 /* 
-  Write the Big O time complexity of your function here
+  O(n^2)
 */
 
 /* 
-  Add your pseudocode here
+create a function hasTargetSum(array, sum)
+	loop through the numbers in array and add it to each other
+		if any of the numbers added together is equal to the integer
+			then return true
+		if not,
+			then return false.
 */
 
 /*
@@ -29,6 +44,13 @@ if (require.main === module) {
 
   console.log("Expecting: false");
   console.log("=>", hasTargetSum([1, 2, 5], 4));
+
+  console.log("Expecting: false");
+  console.log("=>", hasTargetSum([1, 5, 7, 9], 11));
+
+  console.log("Expecting: true");
+  console.log("=>", hasTargetSum([1, 5, 7, 9], 14))
+
 }
 
 module.exports = hasTargetSum;
